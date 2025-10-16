@@ -1,7 +1,8 @@
 import '../css/app.css';
 
 import { createInertiaApp } from '@inertiajs/vue3';
-import {createApp, DefineComponent, h} from 'vue';
+import { createApp, DefineComponent, h } from 'vue';
+import { ZiggyVue } from "ziggy-js";
 import Layout from './layouts/Layout.vue';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
@@ -19,6 +20,7 @@ createInertiaApp({
     setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })
             .use(plugin)
+            .use(ZiggyVue)
             .mount(el);
     },
     progress: {

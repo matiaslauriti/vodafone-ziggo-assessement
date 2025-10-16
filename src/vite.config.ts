@@ -3,6 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue';
 import laravel from 'laravel-vite-plugin';
 import { defineConfig } from 'vite';
+import * as path from "node:path";
 
 export default defineConfig({
     plugins: [
@@ -24,6 +25,11 @@ export default defineConfig({
             formVariants: true,
         }),
     ],
+    resolve: {
+        alias: {
+            'ziggy-js': path.resolve('vendor/tightenco/ziggy'),
+        },
+    },
     server: {
         host: '0.0.0.0',
         hmr: {
