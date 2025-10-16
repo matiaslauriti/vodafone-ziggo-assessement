@@ -5,7 +5,7 @@ services:
       args:
         WWWUSER: ${WWWUSER:-1000}
         WWWGROUP: ${WWWGROUP:-1000}
-        PHP_VERSION: ${PHP_VERSION:-8.3}
+        PHP_VERSION: ${PHP_VERSION:-8.4}
         XDEBUG_VERSION: ${XDEBUG_VERSION:-}
     volumes:
       - ${WORKING_DIR:-./src}:/var/www
@@ -15,6 +15,7 @@ services:
         PHP_IDE_CONFIG: "serverName=localhost"
     depends_on:
       - mysql
+      - api
 
   mysql:
     image: mysql:latest
@@ -37,3 +38,8 @@ services:
       - ${NGINX_PORT:-80}:80
     depends_on:
       - app
+
+  api:
+    image: vzdeveloper/customers-api
+    ports:
+      - 8080:80
