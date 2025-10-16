@@ -11,9 +11,11 @@ return new class extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
 
+            $table->foreignId('scan_id')->constrained()->cascadeOnDelete();
+
             $table->unsignedBigInteger('external_customer_id')->index();
 
-            $table->boolean('fraudulent')->nullable();
+            $table->boolean('fraudulent')->default(false)->index();
 
             $table->unsignedBigInteger('bsn')->index();
 
@@ -37,7 +39,6 @@ return new class extends Migration
 
             $table->date('last_invoice_at')->nullable();
             $table->timestamp('last_login_at')->nullable();
-            $table->timestamp('last_fraudulent_check_at')->nullable();
 
             $table->timestamps();
         });
