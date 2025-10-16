@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Customer extends Model
 {
@@ -31,4 +32,9 @@ class Customer extends Model
         'last_login_at' => 'datetime',
         'products' => 'array',
     ];
+
+    public function scan(): BelongsTo
+    {
+        return $this->belongsTo(Scan::class);
+    }
 }
