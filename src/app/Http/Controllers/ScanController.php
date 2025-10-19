@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Domain\Enums\ScanStatus;
+use App\Jobs\ImportCustomers;
+use App\Models\Scan;
 use Illuminate\Http\Request;
 use Inertia\Response;
 
@@ -9,12 +12,15 @@ class ScanController extends Controller
 {
     public function index(): Response
     {
-        return inertia('Scan/Index');
+        return inertia(
+            'Scan/Index',
+            ['scans' => Scan::with('customers')->where('status', ScanStatus::COMPLETED)->paginate(2)->toResourceCollection()],
+        );
     }
 
     public function create()
     {
-        //
+        dispatch(new ImportCustomers);
     }
 
     public function store(Request $request)

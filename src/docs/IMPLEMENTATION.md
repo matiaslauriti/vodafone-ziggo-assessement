@@ -11,3 +11,6 @@ them into memory. So I can insert data by customer or in chunks, but I do not ne
 * To allow for a quick replacement of validator (fraudulent checker), I just used interfaces so it can be quickly swaped if needed).
 
 # If you had more time, what would you improve or add?
+
+* For the import and validation check, I would have switched the validator check (fraudulent check) of duplicated IP or IBAN to a better query, or any other type
+of check, for example, loading values into a Redis cache or other system and doing queries to that system for faster performance.
