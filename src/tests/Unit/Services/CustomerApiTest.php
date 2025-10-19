@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\API;
+namespace Tests\Unit\Services;
 
 use App\Facades\CustomerFetcherFacade as CustomerFetcher;
 use Carbon\Carbon;
@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Http;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
 
-class CustomerFetcherTest extends TestCase
+class CustomerApiTest extends TestCase
 {
     use WithFaker;
 

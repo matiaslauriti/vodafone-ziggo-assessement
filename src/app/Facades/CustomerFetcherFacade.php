@@ -2,16 +2,16 @@
 
 namespace App\Facades;
 
-use App\Services\Customer\API\Fetcher;
+use App\Services\CustomerApi;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @mixin Fetcher
+ * @mixin CustomerApi
  */
 class CustomerFetcherFacade extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return Fetcher::class ;
+        return CustomerApi::class ;
     }
 }
