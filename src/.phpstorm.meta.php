@@ -1144,6 +1144,8 @@ namespace PHPSTORM_META {
             'services.ses.region' => 'string',
             'services.slack.notifications.bot_user_oauth_token' => 'NULL',
             'services.slack.notifications.channel' => 'NULL',
+            'services.customers.base_uri' => 'string',
+            'services.customers.api_uri' => 'string',
             'session.driver' => 'string',
             'session.lifetime' => 'integer',
             'session.expire_on_close' => 'boolean',
@@ -1570,6 +1572,8 @@ namespace PHPSTORM_META {
             'services.ses.region' => 'string',
             'services.slack.notifications.bot_user_oauth_token' => 'NULL',
             'services.slack.notifications.channel' => 'NULL',
+            'services.customers.base_uri' => 'string',
+            'services.customers.api_uri' => 'string',
             'session.driver' => 'string',
             'session.lifetime' => 'integer',
             'session.expire_on_close' => 'boolean',
@@ -1996,6 +2000,8 @@ namespace PHPSTORM_META {
             'services.ses.region' => 'string',
             'services.slack.notifications.bot_user_oauth_token' => 'NULL',
             'services.slack.notifications.channel' => 'NULL',
+            'services.customers.base_uri' => 'string',
+            'services.customers.api_uri' => 'string',
             'session.driver' => 'string',
             'session.lifetime' => 'integer',
             'session.expire_on_close' => 'boolean',
@@ -2160,16 +2166,17 @@ namespace PHPSTORM_META {
 'queue.connections.redis.retry_after','queue.connections.redis.block_for','queue.connections.redis.after_commit','queue.batching.database','queue.batching.table',
 'queue.failed.driver','queue.failed.database','queue.failed.table','services.postmark.token','services.resend.key',
 'services.ses.key','services.ses.secret','services.ses.region','services.slack.notifications.bot_user_oauth_token','services.slack.notifications.channel',
-'session.driver','session.lifetime','session.expire_on_close','session.encrypt','session.files',
-'session.connection','session.table','session.store','session.lottery','session.cookie',
-'session.path','session.domain','session.secure','session.http_only','session.same_site',
-'session.partitioned','ide-helper.filename','ide-helper.models_filename','ide-helper.meta_filename','ide-helper.include_fluent',
-'ide-helper.include_factory_builders','ide-helper.write_model_magic_where','ide-helper.write_model_external_builder_methods','ide-helper.write_model_relation_count_properties','ide-helper.write_model_relation_exists_properties',
-'ide-helper.write_eloquent_model_mixins','ide-helper.include_helpers','ide-helper.helper_files','ide-helper.model_locations','ide-helper.ignored_models',
-'ide-helper.model_hooks','ide-helper.extra.Eloquent','ide-helper.extra.Session','ide-helper.magic','ide-helper.interfaces',
-'ide-helper.model_camel_case_properties','ide-helper.type_overrides.integer','ide-helper.type_overrides.boolean','ide-helper.include_class_docblocks','ide-helper.force_fqn',
-'ide-helper.use_generics_annotations','ide-helper.macro_default_return_types.Illuminate\\Http\\Client\\Factory','ide-helper.additional_relation_types','ide-helper.additional_relation_return_types','ide-helper.enforce_nullable_relationships',
-'ide-helper.post_migrate','tinker.commands','tinker.alias','tinker.dont_alias',);
+'services.customers.base_uri','services.customers.api_uri','session.driver','session.lifetime','session.expire_on_close',
+'session.encrypt','session.files','session.connection','session.table','session.store',
+'session.lottery','session.cookie','session.path','session.domain','session.secure',
+'session.http_only','session.same_site','session.partitioned','ide-helper.filename','ide-helper.models_filename',
+'ide-helper.meta_filename','ide-helper.include_fluent','ide-helper.include_factory_builders','ide-helper.write_model_magic_where','ide-helper.write_model_external_builder_methods',
+'ide-helper.write_model_relation_count_properties','ide-helper.write_model_relation_exists_properties','ide-helper.write_eloquent_model_mixins','ide-helper.include_helpers','ide-helper.helper_files',
+'ide-helper.model_locations','ide-helper.ignored_models','ide-helper.model_hooks','ide-helper.extra.Eloquent','ide-helper.extra.Session',
+'ide-helper.magic','ide-helper.interfaces','ide-helper.model_camel_case_properties','ide-helper.type_overrides.integer','ide-helper.type_overrides.boolean',
+'ide-helper.include_class_docblocks','ide-helper.force_fqn','ide-helper.use_generics_annotations','ide-helper.macro_default_return_types.Illuminate\\Http\\Client\\Factory','ide-helper.additional_relation_types',
+'ide-helper.additional_relation_return_types','ide-helper.enforce_nullable_relationships','ide-helper.post_migrate','tinker.commands','tinker.alias',
+'tinker.dont_alias',);
         registerArgumentsSet('middleware', 
 'web','api',);
         registerArgumentsSet('routes', 'dashboard','scans.index','scans.create','scans.store',
@@ -2223,7 +2230,7 @@ namespace PHPSTORM_META {
 'MEMCACHED_HOST','REDIS_CLIENT','REDIS_HOST','REDIS_PASSWORD','REDIS_PORT',
 'MAIL_MAILER','MAIL_SCHEME','MAIL_HOST','MAIL_PORT','MAIL_USERNAME',
 'MAIL_PASSWORD','MAIL_FROM_ADDRESS','MAIL_FROM_NAME','AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY',
-'AWS_DEFAULT_REGION','AWS_BUCKET','AWS_USE_PATH_STYLE_ENDPOINT','VITE_APP_NAME',);
+'AWS_DEFAULT_REGION','AWS_BUCKET','AWS_USE_PATH_STYLE_ENDPOINT','VITE_APP_NAME','CUSTOMERS_BASE_URI',);
         
                 expectedArguments(\Illuminate\Support\Facades\Gate::has(), 0, argumentsSet('auth'));
     expectedArguments(\Illuminate\Support\Facades\Gate::allows(), 0, argumentsSet('auth'));

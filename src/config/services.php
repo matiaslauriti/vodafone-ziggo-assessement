@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'customers' => [
+        'base_uri' => env('CUSTOMERS_BASE_URI'),
+        'api_uri' => env('CUSTOMERS_API_URI', '/api/v1/customers'),
+    ],
+
 ];

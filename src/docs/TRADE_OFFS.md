@@ -6,5 +6,5 @@
   or can be fetched from somewhere, but due to simplicity of this exercise, I just kept it simple like this.
   * `error_message` stores the error messages as a string. If a more advanced error needs to be displayed/stored, I would create another table and inserting all the
   needed data there (relating Customer, Scan, and that errors table).
-* Scans table
-  * 
+* I did not use Pest as the optional task mentioned, as I never used Pest (I checked their documentation in the past).
+To be able to do some testing now (that I feel comfortable with to present to you), I will use PHPUnit as I always did. 
