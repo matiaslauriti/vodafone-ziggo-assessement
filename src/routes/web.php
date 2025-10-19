@@ -8,5 +8,11 @@ Route::get('/', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
-Route::resource('scans', ScanController::class)
-    ->except(['edit', 'update']);
+Route::prefix('/scans')
+    ->name('scans.')
+    ->group(function () {
+        Route::get('/', [ScanController::class, 'index'])->name('index');
+        Route::post('/', [ScanController::class, 'store'])->name('store');
+
+        Route::get('/in-progress', [ScanController::class, 'scanInProgress'])->name('in-progress');
+    });

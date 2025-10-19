@@ -3,7 +3,7 @@ import Completed from "@/components/Badges/Completed.vue";
 import Failed from "@/components/Badges/Failed.vue";
 import InProgress from "@/components/Badges/InProgress.vue";
 import Pending from "@/components/Badges/Pending.vue";
-import { Scan } from "@/types";
+import { type Scan } from "@/types";
 
 defineProps<{
     scan: Scan;

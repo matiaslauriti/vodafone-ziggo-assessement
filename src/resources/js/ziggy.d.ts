@@ -3,20 +3,8 @@ declare module 'ziggy-js' {
   interface RouteList {
     "dashboard": [],
     "scans.index": [],
-    "scans.create": [],
     "scans.store": [],
-    "scans.show": [
-        {
-            "name": "scan",
-            "required": true
-        }
-    ],
-    "scans.destroy": [
-        {
-            "name": "scan",
-            "required": true
-        }
-    ],
+    "scans.in-progress": [],
     "storage.local": [
         {
             "name": "path",
