@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Domain\Enums\ScanStatus;
 use App\Jobs\ImportCustomers;
 use App\Models\Scan;
 use Illuminate\Http\JsonResponse;
@@ -15,7 +14,10 @@ class ScanController extends Controller
     {
         return inertia(
             'Scan/Index',
-            ['scans' => Scan::with('customers')->paginate(2)->toResourceCollection()],
+            [
+                'scans' => Scan::with('customers')->latest()->paginate(2)->toResourceCollection(),
+                'in_progress' => Scan::latest()->limit(1)->first()->status ?? null,
+            ],
         );
     }
 
@@ -29,7 +31,7 @@ class ScanController extends Controller
     public function scanInProgress(): JsonResponse
     {
         return response()->json([
-            'in_progress' => Scan::whereStatus(ScanStatus::IN_PROGRESS)->exists(),
+            'in_progress' => Scan::latest()->limit(1)->first()->status ?? null,
         ]);
     }
 }

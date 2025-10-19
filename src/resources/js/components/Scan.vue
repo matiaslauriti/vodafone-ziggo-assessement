@@ -19,51 +19,54 @@ defineProps<{
         <Completed v-else-if="scan.status === 'completed'" />
         <Failed v-else-if="scan.status === 'failed'" />
     </div>
-    <hr class="mt-2 mb-3">
-    <div class="overflow-x-auto">
-        <table>
-            <thead>
-                <tr class="bg-gray-900 *:border *:border-gray-300">
-                    <th>External Customer ID</th>
-                    <th>Error Message</th>
-                    <th>BSN</th>
-                    <th>IBAN</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Date of Birth</th>
-                    <th>Phone Number</th>
-                    <th>Street</th>
-                    <th>Postcode</th>
-                    <th>City</th>
-                    <th>Products</th>
-                    <th>Tag</th>
-                    <th>IP Address</th>
-                    <th>Last Invoice At</th>
-                    <th>Last Login At</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="customer in scan.customers" class="even:bg-gray-800 odd:bg-gray-700 *:border *:border-gray-300" :class="{ 'fraudulent': customer.fraudulent }">
-                    <td>{{ customer.external_customer_id }}</td>
-                    <td>{{ customer.error_message }}</td>
-                    <td>{{ customer.bsn }}</td>
-                    <td>{{ customer.iban }}</td>
-                    <td>{{ customer.first_name }}</td>
-                    <td>{{ customer.last_name }}</td>
-                    <td>{{ customer.date_of_birth }}</td>
-                    <td>{{ customer.phone_number }}</td>
-                    <td>{{ customer.street }}</td>
-                    <td>{{ customer.postal_code }}</td>
-                    <td>{{ customer.city }}</td>
-                    <td>{{ customer.products.join(', ') }}</td>
-                    <td>{{ customer.tag }}</td>
-                    <td>{{ customer.ip_address }}</td>
-                    <td>{{ customer.last_invoice_at }}</td>
-                    <td>{{ customer.last_login_at }}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+
+    <template v-if="scan.status === 'in-progress' || scan.status === 'completed'">
+        <hr class="mt-2 mb-3">
+        <div class="overflow-x-auto">
+            <table>
+                <thead>
+                    <tr class="bg-gray-900 *:border *:border-gray-300">
+                        <th>External Customer ID</th>
+                        <th>Error Message</th>
+                        <th>BSN</th>
+                        <th>IBAN</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Date of Birth</th>
+                        <th>Phone Number</th>
+                        <th>Street</th>
+                        <th>Postcode</th>
+                        <th>City</th>
+                        <th>Products</th>
+                        <th>Tag</th>
+                        <th>IP Address</th>
+                        <th>Last Invoice At</th>
+                        <th>Last Login At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="customer in scan.customers" class="even:bg-gray-800 odd:bg-gray-700 *:border *:border-gray-300" :class="{ 'fraudulent': customer.fraudulent }">
+                        <td>{{ customer.external_customer_id }}</td>
+                        <td>{{ customer.error_message }}</td>
+                        <td>{{ customer.bsn }}</td>
+                        <td>{{ customer.iban }}</td>
+                        <td>{{ customer.first_name }}</td>
+                        <td>{{ customer.last_name }}</td>
+                        <td>{{ customer.date_of_birth }}</td>
+                        <td>{{ customer.phone_number }}</td>
+                        <td>{{ customer.street }}</td>
+                        <td>{{ customer.postal_code }}</td>
+                        <td>{{ customer.city }}</td>
+                        <td>{{ customer.products.join(', ') }}</td>
+                        <td>{{ customer.tag }}</td>
+                        <td>{{ customer.ip_address }}</td>
+                        <td>{{ customer.last_invoice_at }}</td>
+                        <td>{{ customer.last_login_at }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </template>
 </template>
 
 <style scoped>
