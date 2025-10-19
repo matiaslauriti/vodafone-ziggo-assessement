@@ -14,7 +14,7 @@ class ScanController extends Controller
     {
         return inertia(
             'Scan/Index',
-            ['scans' => Scan::with('customers')->where('status', ScanStatus::COMPLETED)->paginate(2)->toResourceCollection()],
+            ['scans' => Scan::with('customers')->paginate(2)->toResourceCollection()],
         );
     }
 
