@@ -9,7 +9,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $id
  * @property int $scan_id
  * @property int $external_customer_id
- * @property int $fraudulent
+ * @property bool $fraudulent
+ * @property string|null $error_message
  * @property int $bsn
  * @property string $iban
  * @property string $first_name
@@ -34,6 +35,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Customer whereCity($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Customer whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Customer whereDateOfBirth($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Customer whereErrorMessage($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Customer whereExternalCustomerId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Customer whereFirstName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Customer whereFraudulent($value)
@@ -58,6 +60,7 @@ class Customer extends Model
         'bsn',
         'city',
         'date_of_birth',
+        'error_message',
         'external_customer_id',
         'first_name',
         'fraudulent',
@@ -75,10 +78,20 @@ class Customer extends Model
     ];
 
     protected $casts = [
+        'fraudulent' => 'boolean',
         'last_invoice_at' => 'date',
         'last_login_at' => 'datetime',
         'products' => 'array',
     ];
+
+    protected static function booted(): void
+    {
+        static::saving(function (Customer $customer) {
+            if ($customer->isDirty('error_message') || $customer->isDirty('fraudulent')) {
+                $customer->fraudulent = !empty($customer->error_message);
+            }
+        });
+    }
 
     public function scan(): BelongsTo
     {
