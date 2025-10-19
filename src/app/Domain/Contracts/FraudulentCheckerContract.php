@@ -2,12 +2,14 @@
 
 namespace App\Domain\Contracts;
 
-interface FraudulentCheckerInterface
+use App\Models\Customer;
+
+interface FraudulentCheckerContract
 {
     /**
-     * @param array $customer Customer's data, as an array, to be validated.
+     * @param Customer $customer Customer's data to be validated.
      *
      * @return array<string, list<string>> Non-empty array when there is an error on any data's index. The index is the same and the value is an array of errors for that index.
      */
-    public function validate(array $customer): array;
+    public function validate(Customer $customer): array;
 }

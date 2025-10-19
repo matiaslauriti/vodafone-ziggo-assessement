@@ -88,9 +88,7 @@ class Customer extends Model
     protected static function booted(): void
     {
         static::saving(function (Customer $customer) {
-            if ($customer->isDirty('error_message') || $customer->isDirty('fraudulent')) {
-                $customer->fraudulent = !empty($customer->error_message);
-            }
+            $customer->fraudulent = !empty($customer->error_message);
         });
     }
 
