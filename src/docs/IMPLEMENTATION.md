@@ -8,3 +8,6 @@
 them into memory. So I can insert data by customer or in chunks, but I do not need to hold it into memory until the process is done.
 * I am making use of InertiaJS and Vue (and ZiggyJS) to consume and display data more easily, and have better UX.
 * I am not validating the API (each customers' data) due to time and simplicity. If the API could return empty values (where they should not), I would validate it
+* To allow for a quick replacement of validator (fraudulent checker), I just used interfaces so it can be quickly swaped if needed).
+
+# If you had more time, what would you improve or add?

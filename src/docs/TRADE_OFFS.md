@@ -7,4 +7,5 @@
   * `error_message` stores the error messages as a string. If a more advanced error needs to be displayed/stored, I would create another table and inserting all the
   needed data there (relating Customer, Scan, and that errors table).
 * I did not use Pest as the optional task mentioned, as I never used Pest (I checked their documentation in the past).
-To be able to do some testing now (that I feel comfortable with to present to you), I will use PHPUnit as I always did. 
+To be able to do some testing now (that I feel comfortable with to present to you), I will use PHPUnit as I always did.
+* As the API fetcher does not make any validation and does return an array, the trade-off is related to consuming the data. I always create a DTO and return that instead of a plain array, but I kept it super simple.
