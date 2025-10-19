@@ -5,7 +5,7 @@ import Scan from "@/components/Scan.vue";
 import { Scan as ScanType } from "@/types";
 
 const { scans } = defineProps<{
-    scans?: {
+    scans: {
         data: ScanType[];
         meta: any;
     },
@@ -16,11 +16,16 @@ const { scans } = defineProps<{
     <Head title="Scan Index" />
     <h2 class="text-2xl text-center mb-6">Existing Scans</h2>
 
-    <div class="border rounded p-2 mx-auto my-4" v-for="scan in scans?.data">
-        <Scan :scan="scan" />
-    </div>
+    <template v-if="scans.data.length">
+        <div class="border rounded p-2 mx-auto my-4" v-for="scan in scans.data">
+            <Scan :scan="scan" />
+        </div>
 
-    <div>
-        <Paginator :links="scans?.meta.links" class="mt-6" />
-    </div>
+        <div>
+            <Paginator :links="scans.meta.links" class="mt-6" />
+        </div>
+    </template>
+    <template v-else>
+        <p class="text-center text-xl">There are no scans available!</p>
+    </template>
 </template>
