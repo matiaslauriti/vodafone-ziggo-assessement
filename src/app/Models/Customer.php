@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $iban
  * @property string $first_name
  * @property string $last_name
- * @property string $date_of_birth
+ * @property \Illuminate\Support\Carbon $date_of_birth
  * @property string $phone_number
  * @property string $street
  * @property string $city
@@ -79,6 +79,7 @@ class Customer extends Model
 
     protected $casts = [
         'fraudulent' => 'boolean',
+        'date_of_birth' => 'date',
         'last_invoice_at' => 'date',
         'last_login_at' => 'datetime',
         'products' => 'array',
