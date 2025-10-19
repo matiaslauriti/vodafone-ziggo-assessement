@@ -12,8 +12,6 @@ import { Link } from '@inertiajs/vue3';
                 <h1 class="ml-3 text-4xl">VodafoneZiggo Assessment</h1>
             </div>
             <menu class="mb-2 flex gap-2">
-                <li><Link :href="route('dashboard')">Dashboard</Link></li>
-                <li><p>|</p></li>
                 <li><Link :href="route('scans.index')">Scans</Link></li>
             </menu>
             <div class="h-1 bg-gradient-to-r from-red-600 to-orange-600"></div>
