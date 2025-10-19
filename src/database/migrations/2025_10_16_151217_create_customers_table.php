@@ -17,6 +17,8 @@ return new class extends Migration
 
             $table->boolean('fraudulent')->default(false)->index();
 
+            $table->text('error_message')->nullable();
+
             $table->unsignedBigInteger('bsn')->index();
 
             $table->string('iban', 18)->index();
