@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Classes;
+namespace App\Domain\Classes\FraudulentCheckers;
 
 use App\Domain\Contracts\FraudulentCheckerInterface;
 

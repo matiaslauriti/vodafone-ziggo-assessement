@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Domain\Classes\SimpleFraudulentChecker;
+use App\Domain\Classes\FraudulentCheckers\SimpleFraudulentChecker;
 use App\Domain\Contracts\FraudulentCheckerInterface;
 use Illuminate\Support\ServiceProvider;
 

@@ -2,8 +2,8 @@
 
 namespace App\Jobs;
 
+use App\Domain\Classes\FraudulentCheckers\SimpleFraudulentChecker;
 use App\Domain\Classes\ScannerProcessor;
-use App\Domain\Classes\SimpleFraudulentChecker;
 use App\Domain\Contracts\FraudulentCheckerInterface;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
