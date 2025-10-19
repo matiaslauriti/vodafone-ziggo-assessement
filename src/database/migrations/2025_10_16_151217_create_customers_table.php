@@ -15,7 +15,7 @@ return new class extends Migration
 
             $table->unsignedBigInteger('external_customer_id')->index();
 
-            $table->boolean('fraudulent')->default(false)->index();
+            $table->boolean('fraudulent')->default(true)->index();
 
             $table->text('error_message')->nullable();
 
