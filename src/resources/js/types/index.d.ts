@@ -21,26 +21,26 @@ export interface User {
 export type Scan = {
     id: number;
     status: 'pending' | 'in-progress' | 'completed' | 'failed';
-    customers: [
-        {
-            id: number;
-            external_customer_id: number;
-            fraudulent: boolean;
-            error_message?: string;
-            bsn: number;
-            iban: string;
-            first_name: string;
-            last_name: string;
-            date_of_birth: string;
-            phone_number: string;
-            street: string;
-            postal_code: string;
-            city: string;
-            products: string[];
-            tag: string;
-            ip_address: string;
-            last_invoice_at: string;
-            last_login_at: string;
-        }
-    ];
+    started_at: string;
+    finished_at: string;
+    customers: Array<{
+        id: number;
+        external_customer_id: number;
+        fraudulent: boolean;
+        error_message?: string;
+        bsn: number;
+        iban: string;
+        first_name: string;
+        last_name: string;
+        date_of_birth: string;
+        phone_number: string;
+        street: string;
+        postal_code: string;
+        city: string;
+        products: string[];
+        tag: string;
+        ip_address: string;
+        last_invoice_at: string;
+        last_login_at: string;
+    }>;
 };

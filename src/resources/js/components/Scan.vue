@@ -12,7 +12,7 @@ defineProps<{
 
 <template>
     <div class="flex justify-between items-center px-1">
-        <p>Scan: #{{ scan.id }}</p>
+        <p>Scan: #{{ scan.id }} | Started at: {{ scan.started_at }} - Finished at: {{ scan.finished_at }}</p>
 
         <Pending v-if="scan.status === 'pending'" />
         <InProgress v-else-if="scan.status === 'in-progress'" />
@@ -23,9 +23,10 @@ defineProps<{
     <template v-if="scan.status === 'in-progress' || scan.status === 'completed'">
         <hr class="mt-2 mb-3">
         <div class="overflow-x-auto">
-            <table>
+            <table class="mx-auto">
                 <thead>
                     <tr class="bg-gray-900 *:border *:border-gray-300">
+                        <th>ID</th>
                         <th>External Customer ID</th>
                         <th>Error Message</th>
                         <th>BSN</th>
@@ -46,6 +47,7 @@ defineProps<{
                 </thead>
                 <tbody>
                     <tr v-for="customer in scan.customers" class="even:bg-gray-800 odd:bg-gray-700 *:border *:border-gray-300" :class="{ 'fraudulent': customer.fraudulent }">
+                        <td>{{ customer.id }}</td>
                         <td>{{ customer.external_customer_id }}</td>
                         <td>{{ customer.error_message }}</td>
                         <td>{{ customer.bsn }}</td>

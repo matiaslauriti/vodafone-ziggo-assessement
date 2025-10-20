@@ -20,6 +20,8 @@ class ScanResource extends JsonResource
             'id' => $this->id,
             'status' => $this->status,
             'customers' => CustomerResource::collection($this->whenLoaded('customers')),
+            'started_at' => $this->created_at->toDateTimeString(),
+            'finished_at' => $this->updated_at->toDateTimeString(),
         ];
     }
 }
