@@ -3,11 +3,14 @@
 1. You need to have the latest Docker (with Docker Compose) running locally
 2. Run `docker compose up -d` to start all the containers
 3. Go inside the `src` folder and copy-paste the `.env.example` as `.env` (minimum config is already set for you)
-4. Run `composer install`
-5. Run `php artisan key:generate`
-6. Run `php artisan migrate`
-7. Run `php artisan queue:work` and leave it running
-8. You are ready to go, head to `http://localhost`
+4. The following commands must be run inside the `app` container, so run `docker compose exec app bash`:
+   1. Run `composer install`
+   2. Run `php artisan key:generate`
+   3. Run `php artisan migrate`
+   4. Run `npm install`
+   5. Run `npm run build`
+   6. Run `php artisan queue:work` and leave it running
+5. You are ready to go, head to `http://localhost`
 
 # What did you implement?
 
